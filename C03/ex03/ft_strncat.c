@@ -6,7 +6,7 @@
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:19:31 by rpontici          #+#    #+#             */
-/*   Updated: 2024/11/19 15:37:15 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:36:12 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		}
 		else
 		{
-			break;
+			break ;
 		}
 	}
 	dest[s + i] = '\0';

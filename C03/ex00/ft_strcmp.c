@@ -6,7 +6,7 @@
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:28:32 by rpontici          #+#    #+#             */
-/*   Updated: 2024/11/18 19:55:19 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:03:39 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strcmp(char *s1, char *s2)
 	{
 		i++;
 	}
-	return (unsigned char)s1[i] - (unsigned char)s2[i];
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 /*int	main(void)
 {

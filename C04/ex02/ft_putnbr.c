@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 20:34:09 by rpontici          #+#    #+#             */
-/*   Updated: 2024/11/19 20:35:28 by rpontici         ###   ########.fr       */
+/*   Created: 2024/11/20 15:51:51 by rpontici          #+#    #+#             */
+/*   Updated: 2024/11/20 18:01:48 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	size(char *dest)
+void	ft_putnbr(int nb)
 {
-	int	i;
+	char	c;
 
-	i = 0;
-	while (dest[i] != '\0')
+	if (nb == -2147483648)
 	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	s;
-
-	s = size(dest);
-	i = 0;
-	while (src [i] != '\0')
+		write (1, "-2", 2);
+		write (1, "147483648", 9);
+	} 
+	else if (nb < 0)
 	{
-		dest[s + i] = src[i];
-		i++;
+		write (1, "-", 1);
+		nb = -nb;
+		ft_putnbr(nb);
 	}
-	dest[s + i] = '\0';
-	return (dest);
+	else if (nb <= 9)
+	{
+		c = nb + '0';
+		write (1, &c, 1);
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		c = (nb % 10) + '0';
+		write (1, &c, 1);
+	}
 }

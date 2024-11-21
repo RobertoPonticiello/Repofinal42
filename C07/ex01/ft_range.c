@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abkhefif <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 20:34:09 by rpontici          #+#    #+#             */
-/*   Updated: 2024/11/19 20:35:28 by rpontici         ###   ########.fr       */
+/*   Created: 2024/11/18 12:52:09 by abkhefif          #+#    #+#             */
+/*   Updated: 2024/11/19 10:58:24 by abkhefif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	size(char *dest)
+int	*ft_range(int min, int max)
 {
-	int	i;
+	int		i;
+	int		*tab;
 
 	i = 0;
-	while (dest[i] != '\0')
+	tab = malloc(sizeof(int) * (max - min + 1));
+	if (!tab)
+		return (0);
+	if (min >= max)
 	{
+		return (0);
+	}
+	while (min < max)
+	{
+		tab[i] = min;
+		min++;
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	s;
-
-	s = size(dest);
-	i = 0;
-	while (src [i] != '\0')
-	{
-		dest[s + i] = src[i];
-		i++;
-	}
-	dest[s + i] = '\0';
-	return (dest);
+	tab[i] = '\0';
+	return (tab);
 }
