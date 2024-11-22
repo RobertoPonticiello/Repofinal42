@@ -11,18 +11,36 @@
 /* ************************************************************************** */
 
 #include<unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
-	range = malloc(sizeof(int *) * (max - min));
 	if (min >= max)
+	{
+        *range = NULL;
 		return(0);
+	}
+	range = malloc(sizeof(int *) * (max - min));
+	if (!range)
+		return(-1);
 	i = 0;
 	while (min < max)
 	{
-		*range[i] = min + i;
+		range[i] = &min;
 		i++;
+		min++;
 	}
 	return (i);
 }
+
+/*int	main(void)
+{
+	int	**range;
+	int	result;
+
+	result = ft_ultimate_range(range, 0, 5);
+	printf("%d\n", result);
+	return (0);
+}*/
