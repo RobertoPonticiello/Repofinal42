@@ -40,7 +40,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 	int	**range;
 	int	result;
 
-	result = ft_ultimate_range(range, 0, 5);
+	result = ft_ultimate_range(range, -5, 5);
 	printf("%d\n", result);
 	return (0);
 }*/
