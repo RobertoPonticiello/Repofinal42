@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 19:25:04 by rpontici          #+#    #+#             */
-/*   Updated: 2024/11/22 19:33:05 by rpontici         ###   ########.fr       */
+/*   Created: 2024/11/25 15:48:24 by rpontici          #+#    #+#             */
+/*   Updated: 2024/11/25 16:46:56 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int	main(int argc, char *argv[])
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
+	char	*str;
 	int		i;
-	char	c;
 
 	i = 0;
-	if (argc > 2)
-		return (0);
-	while (argv[0][i] != '\0')
-	{
-		c = argv[0][i];
-		write(1, &c, 1);
-		i++;
-	}
-	write(1, "\n", 1);
-	return (0);
 }

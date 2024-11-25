@@ -20,7 +20,6 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	j = 1;
-
 	while (j < argc)
 	{
 		while (argv[j][i] != '\0')
@@ -33,5 +32,5 @@ int	main(int argc, char **argv)
 		write(1, "\n", 1);
 		j++;
 	}
-	return(0);
+	return (0);
 }
