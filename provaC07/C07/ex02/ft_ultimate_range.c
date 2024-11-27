@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
@@ -21,12 +21,12 @@ int	ft_ultimate_range(int **range, int min, int max)
 	i = 0;
 	if (min >= max)
 	{
-        *range = NULL;
-		return(0);
+		*range = NULL;
+		return (0);
 	}
 	*range = (int *)malloc(sizeof(int) * (max - min));
 	if (!range)
-		return(-1);
+		return (-1);
 	while (min < max)
 	{
 		(*range)[i] = min;
