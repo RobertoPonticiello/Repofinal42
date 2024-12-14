@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 15:56:10 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/14 17:48:33 by rpontici         ###   ########.fr       */
+/*   Created: 2024/12/14 17:27:30 by rpontici          #+#    #+#             */
+/*   Updated: 2024/12/14 18:03:34 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_toupper(int ch)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	if (ch >= 'a' && ch <= 'z')
 	{
-		i++;
+		ch -= 32;
 	}
-	return (i);
+	return(ch);
 }
+/*
+#include<stdio.h>
+int	main()
+{
+	char	a = 'a';
+	printf("%c", ft_toupper(a));
+	return(0);
+}*/
