@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/14 18:10:29 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/14 18:55:01 by rpontici         ###   ########.fr       */
+/*   Created: 2024/12/14 19:54:21 by rpontici          #+#    #+#             */
+/*   Updated: 2024/12/14 19:57:39 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *string, int c)
+int	ft_atoi(char *str)
 {
-	int	i;
-	
-	i = 0;
-	while (string[i] != '\0')
+	int	sign;
+	int	r;
+
+	r = 0;
+	sign = 1;
+	while (str == 32 || (str >= 9 && str <= 13))
+		str++;
+	if (*str == '-')
 	{
-		if (string[i] == (char)c)
-			return((char *)c);
-		i++;
+		sign = -1;
+		str++;
 	}
-	if (string[i] == (char)c)
-		return((char *)c);
-	return(NULL);
+	if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		r = r * 10 + *str - '0';
+		str++;
+	}
+	return (sign * r);
 }
