@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:34:53 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/15 16:07:20 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/15 17:24:43 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <libstd.h>
+#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -44,11 +44,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str[i] = s2[i];
 		i++;
 	}
-	return(str);
+	return (str);
 }
 
-int	main()
+int	main(void)
 {
 	printf("%s", ft_strjoin("che palle", " sta cazzo di societa"));
-	return(0);
+	return (0);
 }
