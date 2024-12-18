@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include "libft.h"
 
 void    ft_putnbr_fd(int n, int fd)
 {
@@ -13,7 +13,7 @@ void    ft_putnbr_fd(int n, int fd)
         {
                 write (fd, "-", 1);
                 n = -n;
-                ft_putnbr(n);
+                ft_putnbr_fd(n, fd);
         }
         else if (n <= 9)
         {
@@ -22,7 +22,7 @@ void    ft_putnbr_fd(int n, int fd)
         }
         else
         {
-                ft_putnbr(n / 10);
+                ft_putnbr_fd(n / 10, fd);
                 c = (n % 10) + '0';
                 write (fd, &c, 1);
         }

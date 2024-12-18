@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libstd.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -46,9 +45,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (str);
 }
-
+/*
 int	main(void)
 {
 	printf("%s", ft_strjoin("che palle", " sta cazzo di societa"));
 	return (0);
 }
+*/
