@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:29:01 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 12:12:18 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:53:01 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void	*ft_memchr(const void *buf, int c, size_t count)
 	p = (const unsigned char *)buf;
 	uc = (unsigned char)c;
 	i = 0;
-	while (i++ < count)
+	while (i < count)
 	{
 		if (p[i] == uc)
 			return ((void *)&p[i]);
+		i++;
 	}
 	return (NULL);
 }

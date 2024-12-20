@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 20:55:23 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 12:14:21 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:23:10 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strcpy(char *destination, const char *source)
 	int	i;
 
 	i = 0;
-	while (source[i])
+	while (source[i] && destination)
 	{
 		destination[i] = source[i];
 		i++;

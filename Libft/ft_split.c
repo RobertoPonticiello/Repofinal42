@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 13:46:58 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 13:47:00 by rpontici         ###   ########.fr       */
+/*   Created: 2024/12/20 13:56:48 by rpontici          #+#    #+#             */
+/*   Updated: 2024/12/20 13:56:56 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	count_words(char const *s, char c)
 {
-	int count;
-	int in_word;
+	int	count;
+	int	in_word;
 
 	if (!s)
 		return (-1);
@@ -37,7 +37,7 @@ static int	count_words(char const *s, char c)
 
 static int	word_length(char const *s, char c)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[len] && s[len] != c)
@@ -47,8 +47,8 @@ static int	word_length(char const *s, char c)
 
 static char	*copy_word(char const *s, int start, int len)
 {
-	char *word;
-	int i;
+	char	*word;
+	int		i;
 
 	word = malloc((len + 1) * sizeof(char));
 	if (!word)
@@ -65,7 +65,7 @@ static char	*copy_word(char const *s, int start, int len)
 
 static void	free_all(char **arr, int words)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < words)
@@ -78,9 +78,9 @@ static void	free_all(char **arr, int words)
 
 static char	**fill_result(char **result, char const *s, char c, int words)
 {
-	int i;
-	int j;
-	int len;
+	int	i;
+	int	j;
+	int	len;
 
 	i = 0;
 	j = 0;
@@ -104,8 +104,8 @@ static char	**fill_result(char **result, char const *s, char c, int words)
 
 char	**ft_split(char const *s, char c)
 {
-	char **result;
-	int words;
+	char	**result;
+	int		words;
 
 	if (!s)
 		return (NULL);

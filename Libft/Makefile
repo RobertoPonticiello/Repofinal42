@@ -6,7 +6,7 @@
 #    By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 12:59:10 by rpontici          #+#    #+#              #
-#    Updated: 2024/12/20 12:24:41 by rpontici         ###   ########.fr        #
+#    Updated: 2024/12/20 14:10:46 by rpontici         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,14 @@ SRC = ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 
 OBJ = $(SRC:.c=.o)
 
+SRCSB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c
+
+OBJSB = $(SRCSB:.c=.o)
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -34,12 +42,15 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
+bonus: $(OBJ) $(OBJSB)
+	ar rcs $(NAME) $(OBJ) $(OBJSB)
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJSB)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

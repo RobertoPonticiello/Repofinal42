@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:15:07 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 12:10:58 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:55:22 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ char	*ft_itoa(int n)
 	len = (n <= 0);
 	temp = n;
 	if (n < 0)
-	{
 		sign = -1;
-	}
 	else
 		sign = 1;
 	while (temp != 0)
@@ -49,11 +47,9 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-
-#include <stdio.h>
-
+/*
 int	main(void)
 {
 	printf("%s", ft_itoa(-452));
 	return (0);
-}
+}*/
