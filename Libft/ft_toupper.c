@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:27:30 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/14 18:03:34 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:15:06 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ int	ft_toupper(int ch)
 	{
 		ch -= 32;
 	}
-	return(ch);
+	return (ch);
 }
 /*
-#include<stdio.h>
-int	main()
+#include <stdio.h>
+
+int	main(void)
 {
 	char	a = 'a';
 	printf("%c", ft_toupper(a));

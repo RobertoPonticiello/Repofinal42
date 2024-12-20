@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:30:03 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/14 23:13:45 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:14:39 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,33 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	j = 0;
 	if (!*little)
-		return((char *)big);
+		return ((char *)big);
 	while (big[i] && i < len)
 	{
 		j = 0;
 		while (big[i + j] && little[j] && (i + j) < len)
 		{
 			if (big[i + j] != little[j])
-				break;
+				break ;
 			j++;
 		}
 		if (!little[j])
-			return((char *)&big[i]);
+			return ((char *)&big[i]);
 		i++;
 	}
-	return(NULL);
+	return (NULL);
 }
 /*
-int main() {
-    const char *haystack = "Helo is a simple test";
-    const char *needle = "simple";
+int	main(void) {
+	const char *haystack = "Helo is a simple test";
+	const char *needle = "simple";
 
-    // Cerca "simple" nei primi 20 caratteri di haystack
-    char *result = ft_strnstr(haystack, needle, 20);
+	// Cerca "simple" nei primi 20 caratteri di haystack
+	char *result = ft_strnstr(haystack, needle, 20);
 
-    if (result)
-        printf("Trovato: '%s'\n", result); // Output atteso: "simple test"
-    else
-        printf("Sottostringa non trovata.\n");
-    return 0;
+	if (result)
+		printf("Trovato: '%s'\n", result); // Output atteso: "simple test"
+	else
+		printf("Sottostringa non trovata.\n");
+	return (0);
 }*/

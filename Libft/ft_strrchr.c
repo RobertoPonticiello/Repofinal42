@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 18:56:46 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/14 19:17:41 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:14:47 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strrchr(const char *string, int c)
 {
 	char	*r;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (string[i])
@@ -28,23 +28,24 @@ char	*ft_strrchr(const char *string, int c)
 	}
 	if (string[i] == (const char)c)
 	{
-		return((char *)&string[i]);
+		return ((char *)&string[i]);
 	}
-	return(r);
+	return (r);
 }
 /*
 #include <stdio.h>
 
-int main()
+int	main(void)
 {
-    const char *str = "Hello, world!";
-    char c = 'o';
-    char *result = ft_strrchr(str, c);
+	const char *str = "Hello, world!";
+	char c = 'o';
+	char *result = ft_strrchr(str, c);
 
-    if (result)
-        printf("Ultima occorrenza di '%c' trovata in posizione: %ld\n", c, result - str);
-    else
-        printf("Carattere '%c' non trovato.\n", c);
+	if (result)
+		printf("Ultima occorrenza di '%c' trovata in posizione: %ld\n", c,
+			result - str);
+	else
+		printf("Carattere '%c' non trovato.\n", c);
 
-    return 0;
+	return (0);
 }*/

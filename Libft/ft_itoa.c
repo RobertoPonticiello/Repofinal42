@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:15:07 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/15 17:26:40 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:10:58 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-#include<stdio.h>
-int	main()
+#include <stdio.h>
+
+int	main(void)
 {
 	printf("%s", ft_itoa(-452));
-	return(0);
+	return (0);
 }

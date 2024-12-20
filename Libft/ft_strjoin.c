@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 15:34:53 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/15 17:24:43 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:14:05 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	size1 = 0;
 	size2 = 0;
+	i = 0;
 	while (s1[size1] != '\0')
 	{
 		size1++;
