@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 18:56:46 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 12:14:47 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/20 15:57:17 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,16 @@ char	*ft_strrchr(const char *string, int c)
 	char	*r;
 	int		i;
 
+	r = NULL;
 	i = 0;
 	while (string[i])
 	{
-		if (string[i] == (const char)c)
-		{
+		if (string[i] == (char)c)
 			r = (char *)&string[i];
-		}
 		i++;
 	}
-	if (string[i] == (const char)c)
-	{
-		return ((char *)&string[i]);
-	}
+	if (string[i] == (char)c)
+		r = (char *)&string[i];
 	return (r);
 }
 /*
