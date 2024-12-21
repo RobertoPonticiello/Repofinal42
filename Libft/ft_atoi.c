@@ -6,13 +6,13 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 19:54:21 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 14:55:57 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/21 18:25:16 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	r;
