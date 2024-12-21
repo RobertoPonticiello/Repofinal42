@@ -6,46 +6,53 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:15:07 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/21 10:31:10 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/21 14:12:30 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static int	ft_len(long n)
 {
-	char	*result;
-	int		temp;
-	int		len;
-	int		sign;
+	int	len;
 
-	len = (n <= 0);
-	temp = n;
-	if (n < 0)
-		sign = -1;
-	else
-		sign = 1;
-	while (temp != 0)
+	len = 0;
+	if (n <= 0)
 	{
 		len++;
-		temp /= 10;
+		n = -n;
 	}
-	result = (char *)malloc(len + 1);
-	if (!result)
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int nb)
+{
+	char	*str;
+	long	n;
+	int		len;
+
+	n = (long)nb;
+	len = ft_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	result[len] = '\0';
+	str[len] = '\0';
+	if (n < 0)
+		n = -n;
 	while (len > 0)
 	{
 		len--;
-		result[len] = '0' + (n % 10) * sign;
+		str[len] = (n % 10) + '0';
 		n /= 10;
-		while (len == 1 && sign == -1)
-		{
-			result[0] = '-';
-			break ;
-		}
+		if (n == 0 && nb < 0 && len == 0)
+			str[len] = '-';
 	}
-	return (result);
+	return (str);
 }
 /*
 int	main(void)
