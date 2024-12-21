@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-static int	ft_is_charset(char c, char sep)
+static int	ft_is_charset(char const c, char sep)
 {
 	if (c == sep)
 		return (1);
 	return (0);
 }
 
-static int	ft_word_count(char *s, char c)
+static int	ft_word_count(char const *s, char c)
 {
 	int	count;
 	int	i;
@@ -40,7 +40,7 @@ static int	ft_word_count(char *s, char c)
 	return (count);
 }
 
-static char	*ft_strdup_range(char *s, int start, int end)
+static char	*ft_strdup_range(char const *s, int start, int end)
 {
 	char	*dest;
 	int		i;
@@ -55,7 +55,7 @@ static char	*ft_strdup_range(char *s, int start, int end)
 	return (dest);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	int		i;
