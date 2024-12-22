@@ -6,7 +6,7 @@
 /*   By: rpontici <rpontici@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:30:03 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 12:14:39 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:00:37 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	if (!*little)
+	if (*little == '\0')
 		return ((char *)big);
+	if (len == 0)
+		return (NULL);
 	while (big[i] && i < len)
 	{
 		j = 0;

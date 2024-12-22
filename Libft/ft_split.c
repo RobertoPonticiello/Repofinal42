@@ -6,7 +6,7 @@
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:36:42 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/21 12:36:54 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:17:01 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ char	**ft_split(char const *s, char c)
 	int		windex;
 	int		start;
 
+	if (!s)
+		return (NULL);
 	wcount = ft_word_count(s, c);
 	arr = (char **)malloc(sizeof(char *) * (wcount + 1));
 	if (!arr)

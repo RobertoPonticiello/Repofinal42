@@ -6,7 +6,7 @@
 /*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:41:34 by rpontici          #+#    #+#             */
-/*   Updated: 2024/12/20 13:41:38 by rpontici         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:18:48 by rpontici         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
 
+	if (!s)
+		return ;
 	i = 0;
 	while (s[i])
 	{
