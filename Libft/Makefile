@@ -42,6 +42,10 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRCSB)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJSB)
+
 bonus: $(OBJ) $(OBJSB)
 	ar rcs $(NAME) $(OBJ) $(OBJSB)
 
