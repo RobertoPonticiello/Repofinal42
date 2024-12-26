@@ -19,9 +19,26 @@ t_fdata *ft_newindex(int fd)
     return(result);
 }
 
-t_fdata  *ft_updateindex(t_fdata *index)
+t_fdata *ft_updateindex(t_fdata *index, int fd)
 {
+    ssize_t bytes_read;
 
+    // Controlla se dobbiamo leggere nuovi dati
+    if (index->start >= index->end)
+    {
+        bytes_read = read(fd, index->buffer, BUFFER_SIZE);
+        if (bytes_read <= 0) // EOF o errore
+        {
+            ft_clearindex(index);
+            return (NULL); // Restituisci NULL se non ci sono più dati
+        }
+
+        // Aggiorna i campi start ed end
+        index->start = 0;
+        index->end = bytes_read;
+    }
+
+    return index;
 }
 
 char    *get_next_line(int fd)
