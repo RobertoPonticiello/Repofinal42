@@ -1,6 +1,10 @@
 # ifndef GET_NEXT_LINE_H
 #define GET_NEXT_LINE_H
 
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 42
+#endif
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,6 +17,7 @@ typedef struct s_fdata
     size_t end;
 }   t_fdata;
 
+size_t ft_strlen(const char *str);
 void    ft_clearindex(t_fdata *index);
 t_fdata *ft_newindex(void);
 t_fdata *ft_updateindex(t_fdata *index, int fd);
