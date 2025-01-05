@@ -1,103 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/05 18:55:51 by rpontici          #+#    #+#             */
+/*   Updated: 2025/01/05 19:28:03 by rpontici         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-void    ft_clearindex(t_fdata *index)
+t_fdata	*ft_updateindex(t_fdata *index, int fd)
 {
-    if (index)
-        free(index);
+	ssize_t	bytes_read;
+
+	if (index->start >= index->end)
+	{
+		bytes_read = read(fd, index->buffer, BUFFER_SIZE);
+		if (bytes_read <= 0)
+		{
+			index->start = 0;
+			index->end = 0;
+			return (index);
+		}
+		index->start = 0;
+		index->end = bytes_read;
+	}
+	return (index);
 }
 
-size_t ft_strlen(const char *str)
+char	*ft_strjoin(char *s1, char *s2)
 {
-    size_t len = 0;
-    while (str && str[len])
-        len++;
-    return len;
+	size_t	i;
+	size_t	j;
+	char	*result;
+
+	i = 0;
+	j = 0;
+	result = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)+ 1));
+	if (!result)
+		return (NULL);
+	while (i < ft_strlen(s1))
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	while (j < ft_strlen(s2))
+	{
+		result[i + j] = s2[j];
+		j++;
+	}
+	result[i + j] = '\0';
+	if (s1)
+		free(s1);
+	return (result);
 }
 
-t_fdata *ft_newindex(void)
+size_t	set_i(t_fdata *index)
 {
-    t_fdata *result;
-    
-    result = malloc(sizeof(t_fdata));
-    if (!result)
-        return (NULL);
-    result->start = 0;
-    result->end = 0;
-    return(result);
+	size_t	i;
+
+	i = 0;
+	while (index->start + i < index->end && index->buffer[index->start
+			+ i] != '\n')
+		i++;
+	return (i);
 }
 
-t_fdata *ft_updateindex(t_fdata *index, int fd)
+char	*ft_readline(char *str, t_fdata *index)
 {
-    ssize_t bytes_read;
+	size_t	i;
+	size_t	j;
+	char	*temp;
 
-    if (index->start >= index->end)
-    {
-        bytes_read = read(fd, index->buffer, BUFFER_SIZE);
-        if (bytes_read <= 0)
-        {
-            index->start = 0;
-            index->end = 0;
-            return (index);
-        }
-        index->start = 0;
-        index->end = bytes_read;
-    }
-    return (index);
+	i = set_i(index);
+	j = 0;
+	temp = malloc(sizeof(char) * (i + 2));
+	if (!temp)
+		return (NULL);
+	while (j < i)
+	{
+		temp[j] = index->buffer[index->start + j];
+		j++;
+	}
+	if (index->start + i < index->end && index->buffer[index->start
+			+ i] == '\n')
+		temp[j++] = '\n';
+	temp[j] = '\0';
+	index->start += i + (index->start + i < index->end
+			&& (index->buffer[index->start + i] == '\n'));
+	str = ft_strjoin(str, temp);
+	free(temp);
+	return (str);
 }
-
-char *ft_strjoin(char *s1, char *s2)
-{
-    size_t len1 = 0, len2 = 0;
-    size_t i = 0, j = 0;
-    char *result;
-
-    if (s1)
-        while (s1[len1])
-            len1++;
-    while (s2[len2])
-        len2++;
-    result = malloc(sizeof(char) * (len1 + len2 + 1));
-    if (!result)
-        return NULL;
-
-    while (i < len1) {
-        result[i] = s1[i];
-        i++;
-    }
-    while (j < len2) {
-        result[i + j] = s2[j];
-        j++;
-    }
-    result[i + j] = '\0';
-    if (s1)
-        free(s1);
-    return result;
-}
-
-
-char *ft_readline(char *str, t_fdata *index) {
-    size_t i = 0;
-    size_t j = 0;
-    char *temp;
-
-    while (index->start + i < index->end && index->buffer[index->start + i] != '\n') {
-        i++;
-    }
-    temp = malloc(sizeof(char) * (i + 2));
-    if (!temp)
-        return NULL;
-    while (j < i) {
-        temp[j] = index->buffer[index->start + j];
-        j++;
-    }
-    if (index->start + i < index->end && index->buffer[index->start + i] == '\n') {
-        temp[j++] = '\n';
-    }
-    temp[j] = '\0';
-    index->start += i + (index->start + i < index->end && index->buffer[index->start + i] == '\n' ? 1 : 0);
-    str = ft_strjoin(str, temp);
-    free(temp);
-    return str;
-}
-
-

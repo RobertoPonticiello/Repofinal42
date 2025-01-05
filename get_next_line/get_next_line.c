@@ -1,11 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rpontici <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/05 20:34:56 by rpontici          #+#    #+#             */
+/*   Updated: 2025/01/05 20:37:03 by rpontici         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
+void	ft_clearindex(t_fdata *index)
+{
+	if (index)
+		free(index);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (str && str[len])
+		len++;
+	return (len);
+}
+
+t_fdata	*ft_newindex(void)
+{
+	t_fdata	*result;
+
+	result = malloc(sizeof(t_fdata));
+	if (!result)
+		return (NULL);
+	result->start = 0;
+	result->end = 0;
+	return (result);
+}
 
 char	*get_next_line(int fd)
 {
-	static t_fdata *fd_index[1024];
-	char *line = NULL;
+	static t_fdata	*fd_index[1024];
+	char			*line;
 
+	line = NULL;
 	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!fd_index[fd])
@@ -14,7 +54,6 @@ char	*get_next_line(int fd)
 		if (!fd_index[fd])
 			return (NULL);
 	}
-
 	while (1)
 	{
 		fd_index[fd] = ft_updateindex(fd_index[fd], fd);
@@ -29,36 +68,32 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		line = ft_readline(line, fd_index[fd]);
-		if (line && ft_strlen(line) > 0 
-			&& (line[ft_strlen(line) - 1] == '\n' 
-			    || fd_index[fd]->end == 0))
-			break;
+		if (line && ft_strlen(line) > 0 && (line[ft_strlen(line) - 1] == '\n'
+				|| fd_index[fd]->end == 0))
+			break ;
 	}
 	return (line);
 }
 
-
-
-int main(void)
+int	main(void)
 {
-    int     fd_file;
-    char    *line;
-    int     count = 1;
+	int fd_file;
+	char *line;
+	int count = 1;
 
-    fd_file = open("file.txt", O_RDONLY);
-    if (fd_file < 0)
-        return (1);
+	fd_file = open("file.txt", O_RDONLY);
+	if (fd_file < 0)
+		return (1);
 
-    while ((line = get_next_line(fd_file)) != NULL)
-    {
-        printf("%d) %s", count, line);
-        free(line);
-        count++;
-    }
-    close(fd_file);
-    return (0);
+	while ((line = get_next_line(fd_file)) != NULL)
+	{
+		printf("%d) %s", count, line);
+		free(line);
+		count++;
+	}
+	close(fd_file);
+	return (0);
 }
-
 
 /*int	main(void)
 {
