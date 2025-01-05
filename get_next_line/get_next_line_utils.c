@@ -71,7 +71,6 @@ char *ft_strjoin(char *s1, char *s2)
     result[i + j] = '\0';
     if (s1)
         free(s1);
-
     return result;
 }
 

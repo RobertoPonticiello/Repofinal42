@@ -38,7 +38,29 @@ char	*get_next_line(int fd)
 }
 
 
-int	main(void)
+
+int main(void)
+{
+    int     fd_file;
+    char    *line;
+    int     count = 1;
+
+    fd_file = open("file.txt", O_RDONLY);
+    if (fd_file < 0)
+        return (1);
+
+    while ((line = get_next_line(fd_file)) != NULL)
+    {
+        printf("%d) %s", count, line);
+        free(line);
+        count++;
+    }
+    close(fd_file);
+    return (0);
+}
+
+
+/*int	main(void)
 {
 	char *fd;
 
@@ -61,5 +83,6 @@ int	main(void)
 	printf("8) %s", fd);
 	fd = get_next_line(i);
 	printf("9) %s", fd);
+	free(fd);
 	return (0);
-}
+}*/
